@@ -7,4 +7,5 @@ public class Noeud {
 		this.filsG=gauche;
 		this.filsD=droite;
 	}
+	
 }
