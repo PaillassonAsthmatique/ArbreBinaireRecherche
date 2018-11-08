@@ -171,7 +171,7 @@ public class EnsembleGrainFin extends Ensemble{
 	 * @param noeudASupprimer
 	 * @param noeudARemonter
 	 */
-	private void echangerPlaceAvantSuppression(Noeud noeudParent, Noeud noeudASupprimer) {
+	public void echangerPlaceAvantSuppression(Noeud noeudParent, Noeud noeudASupprimer) {
 		
 		// noeud parent du noeud 
 		Noeud parentDefeuilleAEchanger = null;
@@ -210,7 +210,7 @@ public class EnsembleGrainFin extends Ensemble{
 		}
 	}
 	
-	private void echangerNoeud( Noeud noeudSuperieur, Noeud parentNoeudSuperieur, Noeud noeud, Noeud parentNoeud, boolean noeudSuperieurGauche, boolean noeudGauche) {
+	public void echangerNoeud( Noeud noeudSuperieur, Noeud parentNoeudSuperieur, Noeud noeud, Noeud parentNoeud, boolean noeudSuperieurGauche, boolean noeudGauche) {
 		if ( noeudSuperieurGauche ) {
 			parentNoeudSuperieur.setNoeudInferieur(noeud);
 		}else {
