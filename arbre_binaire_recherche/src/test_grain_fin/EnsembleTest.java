@@ -108,4 +108,23 @@ class EnsembleGrainFinTest {
 		assertEquals(false, arbre.contient(1), "test contient 1");
 		assertEquals(false, arbre.contient(14), "test contient 14");
 	}
+	
+	 @Test
+	 public void testEchangerNoeud() {
+		 
+		 arbre.echangerNoeud(arbre.getNoeudRacine().getNoeudInferieur(), arbre.getNoeudRacine(), 
+				 arbre.getNoeudRacine().getNoeudInferieur().getNoeudInferieur().getNoeudInferieur(), arbre.getNoeudRacine().getNoeudInferieur().getNoeudInferieur(),
+				 true, true);
+		 
+		 assertEquals(6, arbre.getNoeudRacine().getNoeudInferieur().getValeur());
+		 assertEquals(9, arbre.getNoeudRacine().getNoeudInferieur().getNoeudInferieur().getNoeudInferieur().getValeur());
+	 }
+	 
+	 @Test
+	 public void testEchangerPlaceAvantSuppression() {
+		 arbre.echangerPlaceAvantSuppression(arbre.getNoeudRacine().getNoeudInferieur(), arbre.getNoeudRacine().getNoeudInferieur().getNoeudInferieur().getNoeudInferieur());
+		 
+		 assertEquals(6, arbre.getNoeudRacine().getNoeudInferieur().getValeur());
+		 assertEquals(9, arbre.getNoeudRacine().getNoeudInferieur().getNoeudInferieur().getNoeudInferieur().getValeur());
+	 }
 }
