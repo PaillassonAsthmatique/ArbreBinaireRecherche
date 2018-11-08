@@ -8,8 +8,8 @@ import gros_grain.Noeud;
 
 /**
  * Implemente une solution d'arbre binaire en <b>grain fin<b/><p>
- * L'arbre ne peut pas contenir deux fois la même valeur<p>
- * Le noeud racine ne peut pas être supprimé
+ * L'arbre ne peut pas contenir deux fois la mï¿½me valeur<p>
+ * Le noeud racine ne peut pas ï¿½tre supprimï¿½
  * 
  * @author Valentin Dequidt, Cedric Hamel
  *
@@ -17,7 +17,7 @@ import gros_grain.Noeud;
 public class EnsembleGrainFin extends Ensemble{
 
 	/**
-	 * Noeud d'aces à l'arbre
+	 * Noeud d'aces ï¿½ l'arbre
 	 */
 	private Noeud noeudRacine = null;
 	
@@ -30,7 +30,7 @@ public class EnsembleGrainFin extends Ensemble{
 	private EnsembleGrainFin() {}
 	
 	/**
-	 * Construit un arbre binaire en donnant a noeud racin la valeur passé en paramètre
+	 * Construit un arbre binaire en donnant a noeud racin la valeur passï¿½ en paramï¿½tre
 	 * 
 	 * @param x : valeur a donner au noeud racine de l'arbre
 	 */
@@ -50,7 +50,7 @@ public class EnsembleGrainFin extends Ensemble{
 	
 	/**
 	 * Supprime le noeud contenant la valeur x dans l'arbre<p>
-	 * Le noeud racine ne peut pas être suppri
+	 * Le noeud racine ne peut pas ï¿½tre suppri
 	 * @param x : la valeur du noeud a supprimer
 	 * @throws NoeudRacineNonSupprimable : quand la valeur que l'on veut supprimer est le noeud racine
 	 * @throws ValeurNonTrouve : quand l'arbre ne contient pas la valeur donne
@@ -90,23 +90,23 @@ public class EnsembleGrainFin extends Ensemble{
 		// si la future valeur est plus petite que la valeur du noeud courant
 		if ( noeud.getValeur() > x ) {
 			if ( noeud.getNoeudInferieur() != null) {
-				// si il y a un déjà un noeud fils inférieur alors on continue la récursivité
+				// si il y a un dï¿½jï¿½ un noeud fils infï¿½rieur alors on continue la rï¿½cursivitï¿½
 				insererRecursif(x, noeud.getNoeudInferieur());
 			}else {
-				// si il n'y a pas de noeud inferieur fils alors on le créer et la méthode est terminé
+				// si il n'y a pas de noeud inferieur fils alors on le crï¿½er et la mï¿½thode est terminï¿½
 				noeud.setNoeudInferieur(new Noeud(x));
 			}
 		// si la future valeur est plus grande que la valeur du noeud courant
 		}else if ( noeud.getValeur() < x ) {
 			if ( noeud.getNoeudSuperieur() != null) {
-				// si il y a un déjà un noeud fils supérieur alors on continue la récursivité
+				// si il y a un dï¿½jï¿½ un noeud fils supï¿½rieur alors on continue la rï¿½cursivitï¿½
 				insererRecursif(x, noeud.getNoeudSuperieur());
 			}else {
-				// si il n'y a pas de noeud supérieur fils alors on le créer et la méthode est terminé
+				// si il n'y a pas de noeud supï¿½rieur fils alors on le crï¿½er et la mï¿½thode est terminï¿½
 				noeud.setNoeudSuperieur(new Noeud(x));
 			}		
 		}else {
-			// si la valeur est déjà présente dans l'arbre alors une exception est levé
+			// si la valeur est dï¿½jï¿½ prï¿½sente dans l'arbre alors une exception est levï¿½
 			throw new ValeurDejaPresente();
 		}
 	}
@@ -129,17 +129,17 @@ public class EnsembleGrainFin extends Ensemble{
 		// si la valeur a supprimer est plus petite que la valeur du noeud courant
 		if ( noeud.getValeur() > x ) {
 			if ( noeud.getNoeudInferieur() != null) {
-				// si il y a un déjà un noeud fils inférieur alors on continue la récursivité
+				// si il y a un dï¿½jï¿½ un noeud fils infï¿½rieur alors on continue la rï¿½cursivitï¿½
 				supprimerRecursif(x, noeud.getNoeudInferieur());
 			}
 		// si la valeur a supprimer est plus grande que la valeur du noeud courant
 		}else if ( noeud.getValeur() < x ) {
 			if ( noeud.getNoeudSuperieur() != null) {
-				// si il y a un déjà un noeud fils supérieur alors on continue la récursivité
+				// si il y a un dï¿½jï¿½ un noeud fils supï¿½rieur alors on continue la rï¿½cursivitï¿½
 				supprimerRecursif(x, noeud.getNoeudSuperieur());
 			}
 		}else {
-			// si la valeur est déjà présente dans l'arbre alors une exception est levé
+			// si la valeur est dï¿½jï¿½ prï¿½sente dans l'arbre alors une exception est levï¿½
 			throw new ValeurNonTrouve(x);
 		}
 	}
@@ -152,7 +152,7 @@ public class EnsembleGrainFin extends Ensemble{
 	 * @return true si l'arbre contient un noeud ayant la valeur x, false sinon
 	 */
 	private boolean contientRecursif(int x, Noeud noeud) {
-		// si le noeud courant contient la valeur, on arrête la recursivite et retourne vrai
+		// si le noeud courant contient la valeur, on arrï¿½te la recursivite et retourne vrai
 		if ( x == noeud.getValeur() ) {
 			return true;
 		}else if ( noeud.getNoeudSuperieur() != null && x > noeud.getValeur() ) {
@@ -160,8 +160,74 @@ public class EnsembleGrainFin extends Ensemble{
 		} else if ( noeud.getNoeudInferieur() != null && x < noeud.getValeur() ) {
 			return contientRecursif(x, noeud.getNoeudInferieur());
 		}else {
-			// si on est arrivé à une feuille et qu'elle ne contient pas la valeur recherché, alors l'arbre ne contient pas la valeur
+			// si on est arrivï¿½ ï¿½ une feuille et qu'elle ne contient pas la valeur recherchï¿½, alors l'arbre ne contient pas la valeur
 			return false;
+		}
+	}
+	
+	/**
+	 * Echange la place du noeud a supprimer
+	 * 
+	 * @param noeudASupprimer
+	 * @param noeudARemonter
+	 */
+	private void echangerPlaceAvantSuppression(Noeud noeudParent, Noeud noeudASupprimer) {
+		
+		// noeud parent du noeud 
+		Noeud parentDefeuilleAEchanger = null;
+		
+		// vrai si le neux a echanger avec une feuille est le fils inferieur de son parent
+		boolean inferieur = true;
+		
+		// VÃ©rification si le noeud a supprimer est dÃ©jÃ  une feuille
+		if ( noeudASupprimer.getNoeudInferieur() != null) {
+			parentDefeuilleAEchanger = noeudASupprimer.getNoeudInferieur();
+			inferieur = true;
+		}else if ( noeudASupprimer.getNoeudSuperieur() != null ) {
+			parentDefeuilleAEchanger = noeudASupprimer.getNoeudSuperieur();
+			inferieur = false;
+		}
+		
+		if ( parentDefeuilleAEchanger != null ) {
+			
+			if ( inferieur && parentDefeuilleAEchanger.getNoeudInferieur().getNoeudInferieur() == null ) {
+				echangerNoeud(noeudASupprimer, noeudParent, parentDefeuilleAEchanger, parentDefeuilleAEchanger.getNoeudInferieur(), inferieur, true);
+			}else if ( !inferieur && parentDefeuilleAEchanger.getNoeudSuperieur().getNoeudSuperieur() == null ) {
+				echangerNoeud(noeudASupprimer, noeudParent, parentDefeuilleAEchanger, parentDefeuilleAEchanger.getNoeudInferieur(), inferieur, false);
+			}
+			
+			if ( inferieur ) {
+				while ( parentDefeuilleAEchanger.getNoeudInferieur().getNoeudInferieur() != null ) {
+					parentDefeuilleAEchanger = parentDefeuilleAEchanger.getNoeudInferieur();
+				}
+				echangerNoeud(noeudASupprimer, noeudParent, parentDefeuilleAEchanger, parentDefeuilleAEchanger.getNoeudInferieur(), inferieur, true);
+			}else {
+				while ( parentDefeuilleAEchanger.getNoeudSuperieur().getNoeudSuperieur() != null) {
+					parentDefeuilleAEchanger = parentDefeuilleAEchanger.getNoeudSuperieur();
+				}
+				echangerNoeud(noeudASupprimer, noeudParent, parentDefeuilleAEchanger, parentDefeuilleAEchanger.getNoeudInferieur(), inferieur, false);
+			}
+		}
+	}
+	
+	private void echangerNoeud( Noeud noeudSuperieur, Noeud parentNoeudSuperieur, Noeud noeud, Noeud parentNoeud, boolean noeudSuperieurGauche, boolean noeudGauche) {
+		if ( noeudSuperieurGauche ) {
+			parentNoeudSuperieur.setNoeudInferieur(noeud);
+		}else {
+			parentNoeudSuperieur.setNoeudSuperieur(noeud);
+		}
+		
+		Noeud noeudDroiteDeSuperieur = noeudSuperieur.getNoeudSuperieur();
+		Noeud noeudGaucheDeSuperieur = noeudSuperieur.getNoeudInferieur();
+		noeudSuperieur.setNoeudInferieur(null);
+		noeudSuperieur.setNoeudSuperieur(null);
+		noeud.setNoeudInferieur(noeudGaucheDeSuperieur);
+		noeud.setNoeudSuperieur(noeudDroiteDeSuperieur);
+		
+		if( noeudGauche ) {
+			parentNoeud.setNoeudInferieur(noeudSuperieur);
+		}else {
+			parentNoeud.setNoeudSuperieur(noeudSuperieur);
 		}
 	}
 	
